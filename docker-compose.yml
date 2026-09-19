@@ -1,0 +1,23 @@
+services:
+  # 1. السيرفر ديالك اللي كيشد الداتا (FastAPI)
+  api:
+    build: .
+    container_name: ads-manager-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app # هاد السطر مهم بزاف! كيخلي قاعدة البيانات ads_data.db مسجلة فـ البيسي عندك باش ماتمشيش الداتا إيلا طفا Docker
+    networks:
+      - agents-network
+  # 2. البلاصة ديال صاحبك (الذكاء الاصطناعي - مخفية دابا)
+  # ai_agents:
+  #   build: ./agents_folder
+  #   depends_on:
+  #     - api  # هادي كتعني بلي الـ Agents ماغيخدمو حتى يشعل السيرفر ديالك هو الأول
+  #   networks:
+  #     - agents-network
+
+  # الشبكة الداخلية فين غيهضرو الصناديق بجوج بأمان
+networks:
+  agents-network:
+    driver: bridge
