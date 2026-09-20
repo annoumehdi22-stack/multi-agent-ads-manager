@@ -80,7 +80,7 @@ def receive_agent_results(result: AgentResult, background_tasks: BackgroundTasks
     
     # دالة باش نصيفطو الخلاصة لـ Slack عبر Make.com
     def send_to_make(payload):
-        make_webhook_url = "https://hook.make.com/YOUR_NEW_WEBHOOK_HERE"
+        make_webhook_url = "https://hook.eu2.make.com/gibqhe237i473ggc1xv14sm0npjc67r6"
         try:
             requests.post(make_webhook_url, json=payload)
         except Exception as e:
