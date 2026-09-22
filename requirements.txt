@@ -1,5 +1,8 @@
 fastapi
 uvicorn
+<<<<<<< HEAD
 pydantic
 groq
+=======
+>>>>>>> a0f274d63754908b86e4bc06429976340bae7fbc
 requests
