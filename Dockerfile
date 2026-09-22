@@ -1,18 +1,18 @@
-# 1.jib Python 3.10 rasmi
+# 1. جلب نسخة بايثون الأساسية
 FROM python:3.10-slim
 
-# 2.dir working directory
+# 2. تحديد المجلد الرئيسي داخل الحاوية
 WORKDIR /app
 
-# 3.copia requirements w installihom
+# 3. نسخ ملف المكتبات وتثبيتها
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 4.copia l-kod kamal
+# 4. نسخ باقي ملفات المشروع للداخل
 COPY . .
 
-# 5.Port li ghadi ykhdm fih (8002)
-EXPOSE 8002
+# 5. فتح المنفذ (Port)
+EXPOSE 8000
 
-# 6.Command bash ych3l l-server
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8002"]
+# 6. الأمر المسؤول عن تشغيل السيرفر تلقائياً
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
